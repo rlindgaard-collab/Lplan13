@@ -195,7 +195,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           color: "#ffffff",
           fontSize: window.innerWidth <= 768 ? "24px" : "32px",
           marginBottom: "20px",
-          fontWeight: "600"
+          fontWeight: "600",
+          fontFamily: "Montserrat, sans-serif"
         }}>Læringsassistent</h1>
 
         <div style={{ 
@@ -249,7 +250,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             color: "#1e3a8a",
             fontSize: window.innerWidth <= 768 ? "18px" : "20px",
             marginBottom: "15px",
-            fontWeight: "600"
+            fontWeight: "600",
+            fontFamily: "Montserrat, sans-serif"
           }}>Mine aktiviteter (max 3)</h2>
           {activities.map((act, idx) => (
             <div key={idx} style={{ 
@@ -332,7 +334,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             color: "#1e3a8a",
             fontSize: window.innerWidth <= 768 ? "18px" : "20px",
             marginBottom: "15px",
-            fontWeight: "600"
+            fontWeight: "600",
+            fontFamily: "Montserrat, sans-serif"
           }}>Opsummering af læreplan</h2>
           {loadingSummary ? (
             <p style={{ color: "#6b7280" }}>✨ GPT arbejder...</p>
@@ -367,7 +370,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             color: "#1e3a8a",
             fontSize: window.innerWidth <= 768 ? "18px" : "20px",
             marginBottom: "15px",
-            fontWeight: "600"
+            fontWeight: "600",
+            fontFamily: "Montserrat, sans-serif"
           }}>Praktikprofil & mål</h2>
           <select 
             value={profile} 
@@ -398,7 +402,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                 color: "#1e40af",
                 fontSize: window.innerWidth <= 768 ? "16px" : "18px",
                 marginBottom: "10px",
-                fontWeight: "600"
+                fontWeight: "600",
+                fontFamily: "Montserrat, sans-serif"
               }}>Kompetencemål</h3>
               <div style={{ marginBottom: "15px" }}>
                 {Array.isArray(goals["kompetencemål"])
@@ -409,7 +414,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                       if (praktikMatch) {
                         return (
                           <div key={i} style={{ marginBottom: "10px" }}>
-                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#1e40af" }}>
+                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#1e40af", fontFamily: "Montserrat, sans-serif" }}>
                               {praktikMatch[1].trim()}
                             </h4>
                             <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{praktikMatch[2]}</p>
@@ -426,7 +431,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                       if (praktikMatch) {
                         return (
                           <div style={{ marginBottom: "10px" }}>
-                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#1e40af" }}>
+                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#1e40af", fontFamily: "Montserrat, sans-serif" }}>
                               {praktikMatch[1].trim()}
                             </h4>
                             <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{praktikMatch[2]}</p>
@@ -441,7 +446,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                 color: "#1e40af",
                 fontSize: window.innerWidth <= 768 ? "16px" : "18px",
                 marginBottom: "10px",
-                fontWeight: "600"
+                fontWeight: "600",
+                fontFamily: "Montserrat, sans-serif"
               }}>Vidensmål</h3>
               <ul style={{ color: "#374151", lineHeight: "1.5" }}>
                 {(goals["vidensmål"] || []).map((m, i) => <li key={i}>{m}</li>)}
@@ -451,7 +457,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                 color: "#1e40af",
                 fontSize: window.innerWidth <= 768 ? "16px" : "18px",
                 marginBottom: "10px",
-                fontWeight: "600"
+                fontWeight: "600",
+                fontFamily: "Montserrat, sans-serif"
               }}>Færdighedsmål</h3>
               <ul style={{ color: "#374151", lineHeight: "1.5" }}>
                 {(goals["færdighedsmål"] || []).map((m, i) => <li key={i}>{m}</li>)}
@@ -471,7 +478,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             color: "#1e3a8a",
             fontSize: window.innerWidth <= 768 ? "18px" : "20px",
             marginBottom: "15px",
-            fontWeight: "600"
+            fontWeight: "600",
+            fontFamily: "Montserrat, sans-serif"
           }}>Lav forslag til aktivitet</h2>
           <button 
             onClick={handleSuggestion} 
