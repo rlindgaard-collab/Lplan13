@@ -216,8 +216,11 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               border: "none",
               fontSize: window.innerWidth <= 768 ? "14px" : "16px",
               width: window.innerWidth <= 768 ? "100%" : "auto",
-              textAlign: "center"
+              textAlign: "center",
+              transition: "background-color 0.2s ease"
             }}
+            onMouseEnter={(e) => e.target.style.backgroundColor = "#1e3a8a"}
+            onMouseLeave={(e) => e.target.style.backgroundColor = "#1e40af"}
           >
             Upload PDF
           </label>
@@ -271,8 +274,11 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                   color: "white",
                   border: "none",
                   borderRadius: "4px",
-                  cursor: "pointer"
+                  cursor: "pointer",
+                  transition: "background-color 0.2s ease"
                 }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = "#dc2626"}
+                onMouseLeave={(e) => e.target.style.backgroundColor = "#ef4444"}
               >
                 Slet
               </button>
@@ -288,8 +294,11 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               borderRadius: "5px",
               cursor: "pointer",
               width: window.innerWidth <= 768 ? "100%" : "auto",
-              fontSize: window.innerWidth <= 768 ? "14px" : "16px"
+              fontSize: window.innerWidth <= 768 ? "14px" : "16px",
+              transition: "background-color 0.2s ease"
             }}
+            onMouseEnter={(e) => e.target.style.backgroundColor = "#047857"}
+            onMouseLeave={(e) => e.target.style.backgroundColor = "#059669"}
           >
             Udskriv alle aktiviteter
           </button>
@@ -467,7 +476,18 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               cursor: loadingSuggestion ? "not-allowed" : "pointer",
               width: window.innerWidth <= 768 ? "100%" : "auto",
               fontSize: window.innerWidth <= 768 ? "14px" : "16px",
-              marginBottom: "10px"
+              marginBottom: "10px",
+              transition: "background-color 0.2s ease"
+            }}
+            onMouseEnter={(e) => {
+              if (!loadingSuggestion) {
+                e.target.style.backgroundColor = "#1e3a8a";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!loadingSuggestion) {
+                e.target.style.backgroundColor = "#1e40af";
+              }
             }}
           >
             {loadingSuggestion ? "⏳ Genererer forslag..." : "Lav forslag"}
@@ -499,8 +519,11 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               borderRadius: "5px",
               cursor: "pointer",
               width: window.innerWidth <= 768 ? "100%" : "auto",
-              fontSize: window.innerWidth <= 768 ? "14px" : "16px"
+              fontSize: window.innerWidth <= 768 ? "14px" : "16px",
+              transition: "background-color 0.2s ease"
             }}
+            onMouseEnter={(e) => e.target.style.backgroundColor = "#047857"}
+            onMouseLeave={(e) => e.target.style.backgroundColor = "#059669"}
           >
             Gem aktivitet
           </button>
