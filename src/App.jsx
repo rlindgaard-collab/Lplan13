@@ -430,10 +430,13 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                       // Pattern 1: "Pædagogens praksis De studerende..."
                       const praktikMatch = m.match(/^([^D]*)\s+(De studerende.*)/);
                       if (praktikMatch) {
+                        let title = praktikMatch[1].trim();
+                        // Remove "1. praktik: " prefix if it exists
+                        title = title.replace(/^\d+\.\s*praktik:\s*/, '');
                         return (
                           <div key={i} style={{ marginBottom: "10px" }}>
                             <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#374151", fontFamily: "Montserrat, sans-serif" }}>
-                              {praktikMatch[1].trim()}
+                              {title}
                             </h4>
                             <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{praktikMatch[2]}</p>
                           </div>
@@ -447,10 +450,13 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                       // Pattern 1: "Pædagogens praksis De studerende..."
                       const praktikMatch = m?.match(/^([^D]*)\s+(De studerende.*)/);
                       if (praktikMatch) {
+                        let title = praktikMatch[1].trim();
+                        // Remove "1. praktik: " prefix if it exists
+                        title = title.replace(/^\d+\.\s*praktik:\s*/, '');
                         return (
                           <div style={{ marginBottom: "10px" }}>
                             <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#374151", fontFamily: "Montserrat, sans-serif" }}>
-                              {praktikMatch[1].trim()}
+                              {title}
                             </h4>
                             <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{praktikMatch[2]}</p>
                           </div>
