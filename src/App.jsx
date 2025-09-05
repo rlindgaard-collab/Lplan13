@@ -169,12 +169,28 @@ ${(goals["færdighedsmål"] || []).join("\n")}
   };
 
   return (
-    <div style={{ display: "flex", fontFamily: "sans-serif" }}>
+    <div style={{ 
+      display: "flex", 
+      flexDirection: window.innerWidth <= 768 ? "column" : "row",
+      fontFamily: "sans-serif",
+      minHeight: "100vh",
+      backgroundColor: "#f5f5f5"
+    }}>
       {/* Venstre side */}
-      <div style={{ flex: 1, padding: "20px" }}>
+      <div style={{ 
+        flex: 1, 
+        padding: window.innerWidth <= 768 ? "10px" : "20px",
+        maxWidth: window.innerWidth <= 768 ? "100%" : "50%"
+      }}>
         <h1>Læringsassistent</h1>
 
-        <div style={{ marginBottom: "20px", background: "#fff", padding: "15px", borderRadius: "10px" }}>
+        <div style={{ 
+          marginBottom: "20px", 
+          background: "#fff", 
+          padding: window.innerWidth <= 768 ? "10px" : "15px", 
+          borderRadius: "10px",
+          boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+        }}>
           <input 
             type="file" 
             accept="application/pdf" 
@@ -186,13 +202,15 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             htmlFor="pdf-upload"
             style={{
               display: "inline-block",
-              padding: "10px 20px",
+              padding: window.innerWidth <= 768 ? "12px 16px" : "10px 20px",
               backgroundColor: "#007bff",
               color: "white",
               borderRadius: "5px",
               cursor: "pointer",
               border: "none",
-              fontSize: "16px"
+              fontSize: window.innerWidth <= 768 ? "14px" : "16px",
+              width: window.innerWidth <= 768 ? "100%" : "auto",
+              textAlign: "center"
             }}
           >
             Upload PDF
@@ -201,28 +219,82 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           {loadingSummary && <p>✨ Opsummerer læreplan...</p>}
         </div>
 
-        <div style={{ marginBottom: "20px", background: "#fff", padding: "15px", borderRadius: "10px" }}>
+        <div style={{ 
+          marginBottom: "20px", 
+          background: "#fff", 
+          padding: window.innerWidth <= 768 ? "10px" : "15px", 
+          borderRadius: "10px",
+          boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+        }}>
           <h2>Mine aktiviteter (max 3)</h2>
           {activities.map((act, idx) => (
-            <div key={idx} style={{ border: "1px solid #ddd", padding: "10px", marginBottom: "10px", borderRadius: "6px" }}>
+            <div key={idx} style={{ 
+              border: "1px solid #ddd", 
+              padding: window.innerWidth <= 768 ? "8px" : "10px", 
+              marginBottom: "10px", 
+              borderRadius: "6px" 
+            }}>
               <strong>Aktivitet {idx + 1}</strong>
               <p>{act.text}</p>
               <textarea
                 placeholder="Skriv dine refleksioner..."
                 value={act.reflection}
                 onChange={(e) => updateReflection(idx, e.target.value)}
-                style={{ width: "100%", marginBottom: "10px" }}
+                style={{ 
+                  width: "100%", 
+                  marginBottom: "10px",
+                  minHeight: window.innerWidth <= 768 ? "60px" : "80px",
+                  padding: "8px",
+                  borderRadius: "4px",
+                  border: "1px solid #ddd"
+                }}
               />
-              <button onClick={() => deleteActivity(idx)}>Slet</button>
+              <button 
+                onClick={() => deleteActivity(idx)}
+                style={{
+                  padding: "6px 12px",
+                  backgroundColor: "#dc3545",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "4px",
+                  cursor: "pointer"
+                }}
+              >
+                Slet
+              </button>
             </div>
           ))}
-          <button onClick={downloadPDF}>Udskriv alle aktiviteter</button>
+          <button 
+            onClick={downloadPDF}
+            style={{
+              padding: window.innerWidth <= 768 ? "12px 16px" : "10px 20px",
+              backgroundColor: "#28a745",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+              width: window.innerWidth <= 768 ? "100%" : "auto",
+              fontSize: window.innerWidth <= 768 ? "14px" : "16px"
+            }}
+          >
+            Udskriv alle aktiviteter
+          </button>
         </div>
       </div>
 
       {/* Højre side */}
-      <div style={{ flex: 1, padding: "20px" }}>
-        <div style={{ marginBottom: "20px", background: "#fff", padding: "15px", borderRadius: "10px" }}>
+      <div style={{ 
+        flex: 1, 
+        padding: window.innerWidth <= 768 ? "10px" : "20px",
+        maxWidth: window.innerWidth <= 768 ? "100%" : "50%"
+      }}>
+        <div style={{ 
+          marginBottom: "20px", 
+          background: "#fff", 
+          padding: window.innerWidth <= 768 ? "10px" : "15px", 
+          borderRadius: "10px",
+          boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+        }}>
           <h2>Opsummering af læreplan</h2>
           {loadingSummary ? (
             <p>✨ GPT arbejder...</p>
@@ -234,9 +306,9 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               backgroundColor: "#f9f9f9",
               whiteSpace: "pre-wrap",
               wordWrap: "break-word",
-              maxHeight: "300px",
+              maxHeight: window.innerWidth <= 768 ? "200px" : "300px",
               overflowY: "auto",
-              fontSize: "14px",
+              fontSize: window.innerWidth <= 768 ? "12px" : "14px",
               lineHeight: "1.4"
             }}>
               {summary || "Ingen opsummering endnu - upload en PDF for at komme i gang."}
@@ -244,9 +316,26 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           )}
         </div>
 
-        <div style={{ marginBottom: "20px", background: "#fff", padding: "15px", borderRadius: "10px" }}>
+        <div style={{ 
+          marginBottom: "20px", 
+          background: "#fff", 
+          padding: window.innerWidth <= 768 ? "10px" : "15px", 
+          borderRadius: "10px",
+          boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+        }}>
           <h2>Praktikprofil & mål</h2>
-          <select value={profile} onChange={handleProfileChange}>
+          <select 
+            value={profile} 
+            onChange={handleProfileChange}
+            style={{
+              width: "100%",
+              padding: "8px",
+              marginBottom: "10px",
+              borderRadius: "4px",
+              border: "1px solid #ddd",
+              fontSize: window.innerWidth <= 768 ? "14px" : "16px"
+            }}
+          >
             <option value="">Vælg profil</option>
             {Object.keys(kompetenceData).map((key) => (
               <option key={key} value={key}>
@@ -272,9 +361,28 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           )}
         </div>
 
-        <div style={{ background: "#fff", padding: "15px", borderRadius: "10px" }}>
+        <div style={{ 
+          background: "#fff", 
+          padding: window.innerWidth <= 768 ? "10px" : "15px", 
+          borderRadius: "10px",
+          boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+        }}>
           <h2>Lav forslag til aktivitet</h2>
-          <button onClick={handleSuggestion} disabled={loadingSuggestion}>
+          <button 
+            onClick={handleSuggestion} 
+            disabled={loadingSuggestion}
+            style={{
+              padding: window.innerWidth <= 768 ? "12px 16px" : "10px 20px",
+              backgroundColor: loadingSuggestion ? "#6c757d" : "#007bff",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: loadingSuggestion ? "not-allowed" : "pointer",
+              width: window.innerWidth <= 768 ? "100%" : "auto",
+              fontSize: window.innerWidth <= 768 ? "14px" : "16px",
+              marginBottom: "10px"
+            }}
+          >
             {loadingSuggestion ? "⏳ Genererer forslag..." : "Lav forslag"}
           </button>
           <div style={{
@@ -284,16 +392,30 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             backgroundColor: "#f9f9f9",
             whiteSpace: "pre-wrap",
             wordWrap: "break-word",
-            maxHeight: "300px",
+            maxHeight: window.innerWidth <= 768 ? "200px" : "300px",
             overflowY: "auto",
-            fontSize: "14px",
+            fontSize: window.innerWidth <= 768 ? "12px" : "14px",
             lineHeight: "1.4",
             marginTop: "10px",
             marginBottom: "10px"
           }}>
             {suggestion || "Klik på 'Lav forslag' for at få et aktivitetsforslag baseret på din læreplan og kompetencemål."}
           </div>
-          <button onClick={saveActivity}>Gem aktivitet</button>
+          <button 
+            onClick={saveActivity}
+            style={{
+              padding: window.innerWidth <= 768 ? "12px 16px" : "10px 20px",
+              backgroundColor: "#28a745",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+              width: window.innerWidth <= 768 ? "100%" : "auto",
+              fontSize: window.innerWidth <= 768 ? "14px" : "16px"
+            }}
+          >
+            Gem aktivitet
+          </button>
         </div>
       </div>
     </div>
