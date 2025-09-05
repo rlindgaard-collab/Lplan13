@@ -397,7 +397,13 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             ))}
           </select>
           {profile && goals && (
-            <div>
+            <div style={{
+              border: "1px solid #d1d5db",
+              padding: "12px",
+              borderRadius: "8px",
+              backgroundColor: "#f9fafb",
+              marginTop: "10px"
+            }}>
               <h3 style={{
                 color: "#1e40af",
                 fontSize: window.innerWidth <= 768 ? "16px" : "18px",
