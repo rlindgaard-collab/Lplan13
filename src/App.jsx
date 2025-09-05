@@ -31,6 +31,7 @@ function App() {
   const [loadingPdf, setLoadingPdf] = useState(false);
   const [loadingSummary, setLoadingSummary] = useState(false);
   const [loadingSuggestion, setLoadingSuggestion] = useState(false);
+  const [uploadedFileName, setUploadedFileName] = useState("");
 
   // Hent kompetencemål.json
   useEffect(() => {
@@ -49,6 +50,7 @@ function App() {
     const file = e.target.files[0];
     if (!file) return;
 
+    setUploadedFileName(file.name);
     setLoadingPdf(true);
     setSummary("");
     try {
@@ -234,6 +236,16 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           >
             Upload PDF
           </label>
+          {uploadedFileName && !loadingPdf && !loadingSummary && (
+            <p style={{ 
+              marginTop: "10px", 
+              color: "#374151", 
+              fontSize: "14px",
+              fontStyle: "italic"
+            }}>
+              📄 Uploadet fil: {uploadedFileName}
+            </p>
+          )}
           {loadingPdf && <p>📄 Indlæser PDF...</p>}
           {loadingSummary && <p>✨ Opsummerer læreplan...</p>}
         </div>
