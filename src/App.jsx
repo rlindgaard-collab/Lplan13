@@ -247,7 +247,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           border: "1px solid #e5e7eb"
         }}>
           <h2 style={{
-            color: "#1e3a8a",
+            color: "#ffffff",
             fontSize: window.innerWidth <= 768 ? "18px" : "20px",
             marginBottom: "15px",
             fontWeight: "600",
@@ -331,7 +331,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           border: "1px solid #e5e7eb"
         }}>
           <h2 style={{
-            color: "#1e3a8a",
+            color: "#ffffff",
             fontSize: window.innerWidth <= 768 ? "18px" : "20px",
             marginBottom: "15px",
             fontWeight: "600",
@@ -367,7 +367,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           border: "1px solid #e5e7eb"
         }}>
           <h2 style={{
-            color: "#1e3a8a",
+            color: "#ffffff",
             fontSize: window.innerWidth <= 768 ? "18px" : "20px",
             marginBottom: "15px",
             fontWeight: "600",
@@ -405,7 +405,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               marginTop: "10px"
             }}>
               <h3 style={{
-                color: "#1e40af",
+                color: "#374151",
                 fontSize: window.innerWidth <= 768 ? "16px" : "18px",
                 marginBottom: "10px",
                 fontWeight: "600",
@@ -420,7 +420,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                       if (praktikMatch) {
                         return (
                           <div key={i} style={{ marginBottom: "10px" }}>
-                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#1e40af", fontFamily: "Montserrat, sans-serif" }}>
+                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#374151", fontFamily: "Montserrat, sans-serif" }}>
                               {praktikMatch[1].trim()}
                             </h4>
                             <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{praktikMatch[2]}</p>
@@ -437,7 +437,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                       if (praktikMatch) {
                         return (
                           <div style={{ marginBottom: "10px" }}>
-                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#1e40af", fontFamily: "Montserrat, sans-serif" }}>
+                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#374151", fontFamily: "Montserrat, sans-serif" }}>
                               {praktikMatch[1].trim()}
                             </h4>
                             <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{praktikMatch[2]}</p>
@@ -449,7 +449,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               </div>
 
               <h3 style={{
-                color: "#1e40af",
+                color: "#374151",
                 fontSize: window.innerWidth <= 768 ? "16px" : "18px",
                 marginBottom: "10px",
                 fontWeight: "600",
@@ -460,7 +460,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               </ul>
 
               <h3 style={{
-                color: "#1e40af",
+                color: "#374151",
                 fontSize: window.innerWidth <= 768 ? "16px" : "18px",
                 marginBottom: "10px",
                 fontWeight: "600",
@@ -481,7 +481,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           border: "1px solid #e5e7eb"
         }}>
           <h2 style={{
-            color: "#1e3a8a",
+            color: "#ffffff",
             fontSize: window.innerWidth <= 768 ? "18px" : "20px",
             marginBottom: "15px",
             fontWeight: "600",
