@@ -204,7 +204,24 @@ ${(goals["færdighedsmål"] || []).join("\n")}
       <div style={{ flex: 1, padding: "20px" }}>
         <div style={{ marginBottom: "20px", background: "#fff", padding: "15px", borderRadius: "10px" }}>
           <h2>Opsummering af læreplan</h2>
-          {loadingSummary ? <p>✨ GPT arbejder...</p> : <pre>{summary}</pre>}
+          {loadingSummary ? (
+            <p>✨ GPT arbejder...</p>
+          ) : (
+            <div style={{
+              border: "1px solid #ddd",
+              padding: "12px",
+              borderRadius: "6px",
+              backgroundColor: "#f9f9f9",
+              whiteSpace: "pre-wrap",
+              wordWrap: "break-word",
+              maxHeight: "300px",
+              overflowY: "auto",
+              fontSize: "14px",
+              lineHeight: "1.4"
+            }}>
+              {summary || "Ingen opsummering endnu - upload en PDF for at komme i gang."}
+            </div>
+          )}
         </div>
 
         <div style={{ marginBottom: "20px", background: "#fff", padding: "15px", borderRadius: "10px" }}>
