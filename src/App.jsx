@@ -351,7 +351,20 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               <div style={{ marginBottom: "15px" }}>
                 {Array.isArray(goals["kompetencemål"])
                   ? goals["kompetencemål"].map((m, i) => {
-                      // Check if the text contains a title pattern like "Samarbejde og udvikling Den studerende..."
+                      // Check for different title patterns
+                      // Pattern 1: "1. praktik: Pædagogens praksis De studerende..."
+                      const praktikMatch = m.match(/^1\.\s*praktik:\s*([^D]*)\s+(De studerende.*)/);
+                      if (praktikMatch) {
+                        return (
+                          <div key={i} style={{ marginBottom: "10px" }}>
+                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "bold", color: "#333" }}>
+                              {praktikMatch[1].trim()}
+                            </h4>
+                            <p style={{ margin: "0", lineHeight: "1.4" }}>{praktikMatch[2]}</p>
+                          </div>
+                        );
+                      }
+                      // Pattern 2: "Samarbejde og udvikling Den studerende..."
                       const titleMatch = m.match(/^([^A-ZÆØÅ]*[A-ZÆØÅ][^A-ZÆØÅ]*)\s+(Den studerende.*)/);
                       if (titleMatch) {
                         return (
@@ -367,6 +380,20 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                     })
                   : (() => {
                       const m = goals["kompetencemål"];
+                      // Check for different title patterns
+                      // Pattern 1: "1. praktik: Pædagogens praksis De studerende..."
+                      const praktikMatch = m?.match(/^1\.\s*praktik:\s*([^D]*)\s+(De studerende.*)/);
+                      if (praktikMatch) {
+                        return (
+                          <div style={{ marginBottom: "10px" }}>
+                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "bold", color: "#333" }}>
+                              {praktikMatch[1].trim()}
+                            </h4>
+                            <p style={{ margin: "0", lineHeight: "1.4" }}>{praktikMatch[2]}</p>
+                          </div>
+                        );
+                      }
+                      // Pattern 2: "Samarbejde og udvikling Den studerende..."
                       const titleMatch = m?.match(/^([^A-ZÆØÅ]*[A-ZÆØÅ][^A-ZÆØÅ]*)\s+(Den studerende.*)/);
                       if (titleMatch) {
                         return (
