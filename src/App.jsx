@@ -339,12 +339,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             <option value="">Vælg profil</option>
             {Object.keys(kompetenceData).map((key) => (
               <option key={key} value={key}>
-                {key.includes("Dagtilbudspædagogik") 
-                  ? key.replace("Dagtilbudspædagogik – ", "")
-                  : key.includes("Skole- og fritidspædagogik")
-                  ? key.replace("Skole- og fritidspædagogik – ", "")
-                  : key.includes("Social- og specialpædagogik")
-                  ? key.replace("Social- og specialpædagogik – ", "")
+                {key === "Dagtilbudspædagogik – 1. praktik" 
+                  ? "1. praktik"
                   : key}
               </option>
             ))}
