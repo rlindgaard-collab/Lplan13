@@ -216,8 +216,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               border: "none",
               fontSize: window.innerWidth <= 768 ? "14px" : "16px",
               width: window.innerWidth <= 768 ? "100%" : "auto",
-              textAlign: "center",
-              transition: "background-color 0.2s"
+              textAlign: "center"
             }}
           >
             Upload PDF
@@ -272,8 +271,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                   color: "white",
                   border: "none",
                   borderRadius: "4px",
-                  cursor: "pointer",
-                  transition: "background-color 0.2s"
+                  cursor: "pointer"
                 }}
               >
                 Slet
@@ -290,8 +288,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               borderRadius: "5px",
               cursor: "pointer",
               width: window.innerWidth <= 768 ? "100%" : "auto",
-              fontSize: window.innerWidth <= 768 ? "14px" : "16px",
-              transition: "background-color 0.2s"
+              fontSize: window.innerWidth <= 768 ? "14px" : "16px"
             }}
           >
             Udskriv alle aktiviteter
@@ -389,8 +386,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                 {Array.isArray(goals["kompetencemål"])
                   ? goals["kompetencemål"].map((m, i) => {
                       // Check for different title patterns
-                      // Pattern 1: "1. praktik: Pædagogens praksis De studerende..."
-                      const praktikMatch = m.match(/^1\.\s*praktik:\s*([^D]*)\s+(De studerende.*)/);
+                      // Pattern 1: "Pædagogens praksis De studerende..."
+                      const praktikMatch = m.match(/^([^D]*)\s+(De studerende.*)/);
                       if (praktikMatch) {
                         return (
                           <div key={i} style={{ marginBottom: "10px" }}>
@@ -398,18 +395,6 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                               {praktikMatch[1].trim()}
                             </h4>
                             <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{praktikMatch[2]}</p>
-                          </div>
-                        );
-                      }
-                      // Pattern 2: "Samarbejde og udvikling Den studerende..."
-                      const titleMatch = m.match(/^([^A-ZÆØÅ]*[A-ZÆØÅ][^A-ZÆØÅ]*)\s+(Den studerende.*)/);
-                      if (titleMatch) {
-                        return (
-                          <div key={i} style={{ marginBottom: "10px" }}>
-                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#1e40af" }}>
-                              {titleMatch[1].trim()}
-                            </h4>
-                            <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{titleMatch[2]}</p>
                           </div>
                         );
                       }
@@ -418,8 +403,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                   : (() => {
                       const m = goals["kompetencemål"];
                       // Check for different title patterns
-                      // Pattern 1: "1. praktik: Pædagogens praksis De studerende..."
-                      const praktikMatch = m?.match(/^1\.\s*praktik:\s*([^D]*)\s+(De studerende.*)/);
+                      // Pattern 1: "Pædagogens praksis De studerende..."
+                      const praktikMatch = m?.match(/^([^D]*)\s+(De studerende.*)/);
                       if (praktikMatch) {
                         return (
                           <div style={{ marginBottom: "10px" }}>
@@ -427,18 +412,6 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                               {praktikMatch[1].trim()}
                             </h4>
                             <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{praktikMatch[2]}</p>
-                          </div>
-                        );
-                      }
-                      // Pattern 2: "Samarbejde og udvikling Den studerende..."
-                      const titleMatch = m?.match(/^([^A-ZÆØÅ]*[A-ZÆØÅ][^A-ZÆØÅ]*)\s+(Den studerende.*)/);
-                      if (titleMatch) {
-                        return (
-                          <div style={{ marginBottom: "10px" }}>
-                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#1e40af" }}>
-                              {titleMatch[1].trim()}
-                            </h4>
-                            <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{titleMatch[2]}</p>
                           </div>
                         );
                       }
@@ -494,8 +467,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               cursor: loadingSuggestion ? "not-allowed" : "pointer",
               width: window.innerWidth <= 768 ? "100%" : "auto",
               fontSize: window.innerWidth <= 768 ? "14px" : "16px",
-              marginBottom: "10px",
-              transition: "background-color 0.2s"
+              marginBottom: "10px"
             }}
           >
             {loadingSuggestion ? "⏳ Genererer forslag..." : "Lav forslag"}
@@ -527,8 +499,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               borderRadius: "5px",
               cursor: "pointer",
               width: window.innerWidth <= 768 ? "100%" : "auto",
-              fontSize: window.innerWidth <= 768 ? "14px" : "16px",
-              transition: "background-color 0.2s"
+              fontSize: window.innerWidth <= 768 ? "14px" : "16px"
             }}
           >
             Gem aktivitet
