@@ -216,7 +216,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               border: "none",
               fontSize: window.innerWidth <= 768 ? "14px" : "16px",
               width: window.innerWidth <= 768 ? "100%" : "auto",
-              textAlign: "center"
+              textAlign: "center",
               transition: "background-color 0.2s"
             }}
           >
