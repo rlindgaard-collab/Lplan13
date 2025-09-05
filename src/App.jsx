@@ -11,6 +11,13 @@ function App() {
   const SUPABASE_URL =
     "https://fjwpfesqfwtozaciphnc.supabase.co/functions/v1";
 
+  // Global CSS reset
+  useEffect(() => {
+    document.body.style.margin = "0";
+    document.body.style.padding = "0";
+    document.body.style.backgroundColor = "#004250";
+  }, []);
+
   const [summary, setSummary] = useState("");
   const [profile, setProfile] = useState("");
   const [kompetenceData, setKompetenceData] = useState({});
