@@ -174,7 +174,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
       flexDirection: window.innerWidth <= 768 ? "column" : "row",
       fontFamily: "sans-serif",
       minHeight: "100vh",
-      backgroundColor: "#f8f9fa"
+      backgroundColor: "#e6f7f1"
     }}>
       {/* Venstre side */}
       <div style={{ 
@@ -209,7 +209,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             style={{
               display: "inline-block",
               padding: window.innerWidth <= 768 ? "12px 16px" : "10px 20px",
-              backgroundColor: "#1e40af",
+              backgroundColor: "#00a76f",
               color: "white",
               borderRadius: "5px",
               cursor: "pointer",
@@ -219,8 +219,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               textAlign: "center",
               transition: "background-color 0.2s ease"
             }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = "#1e3a8a"}
-            onMouseLeave={(e) => e.target.style.backgroundColor = "#1e40af"}
+            onMouseEnter={(e) => e.target.style.backgroundColor = "#008f5f"}
+            onMouseLeave={(e) => e.target.style.backgroundColor = "#00a76f"}
           >
             Upload PDF
           </label>
@@ -288,7 +288,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             onClick={downloadPDF}
             style={{
               padding: window.innerWidth <= 768 ? "12px 16px" : "10px 20px",
-              backgroundColor: "#059669",
+              backgroundColor: "#00a76f",
               color: "white",
               border: "none",
               borderRadius: "5px",
@@ -297,8 +297,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               fontSize: window.innerWidth <= 768 ? "14px" : "16px",
               transition: "background-color 0.2s ease"
             }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = "#047857"}
-            onMouseLeave={(e) => e.target.style.backgroundColor = "#059669"}
+            onMouseEnter={(e) => e.target.style.backgroundColor = "#008f5f"}
+            onMouseLeave={(e) => e.target.style.backgroundColor = "#00a76f"}
           >
             Udskriv alle aktiviteter
           </button>
@@ -469,7 +469,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             disabled={loadingSuggestion}
             style={{
               padding: window.innerWidth <= 768 ? "12px 16px" : "10px 20px",
-              backgroundColor: loadingSuggestion ? "#9ca3af" : "#1e40af",
+              backgroundColor: loadingSuggestion ? "#9ca3af" : "#00a76f",
               color: "white",
               border: "none",
               borderRadius: "5px",
@@ -481,12 +481,12 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             }}
             onMouseEnter={(e) => {
               if (!loadingSuggestion) {
-                e.target.style.backgroundColor = "#1e3a8a";
+                e.target.style.backgroundColor = "#008f5f";
               }
             }}
             onMouseLeave={(e) => {
               if (!loadingSuggestion) {
-                e.target.style.backgroundColor = "#1e40af";
+                e.target.style.backgroundColor = "#00a76f";
               }
             }}
           >
@@ -513,7 +513,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             onClick={saveActivity}
             style={{
               padding: window.innerWidth <= 768 ? "12px 16px" : "10px 20px",
-              backgroundColor: "#059669",
+              backgroundColor: "#00a76f",
               color: "white",
               border: "none",
               borderRadius: "5px",
@@ -522,8 +522,8 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               fontSize: window.innerWidth <= 768 ? "14px" : "16px",
               transition: "background-color 0.2s ease"
             }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = "#047857"}
-            onMouseLeave={(e) => e.target.style.backgroundColor = "#059669"}
+            onMouseEnter={(e) => e.target.style.backgroundColor = "#008f5f"}
+            onMouseLeave={(e) => e.target.style.backgroundColor = "#00a76f"}
           >
             Gem aktivitet
           </button>
