@@ -247,7 +247,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           border: "1px solid #e5e7eb"
         }}>
           <h2 style={{
-            color: "#ffffff",
+            color: "#374151",
             fontSize: window.innerWidth <= 768 ? "18px" : "20px",
             marginBottom: "15px",
             fontWeight: "600",
@@ -331,7 +331,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           border: "1px solid #e5e7eb"
         }}>
           <h2 style={{
-            color: "#ffffff",
+            color: "#374151",
             fontSize: window.innerWidth <= 768 ? "18px" : "20px",
             marginBottom: "15px",
             fontWeight: "600",
@@ -367,7 +367,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           border: "1px solid #e5e7eb"
         }}>
           <h2 style={{
-            color: "#ffffff",
+            color: "#374151",
             fontSize: window.innerWidth <= 768 ? "18px" : "20px",
             marginBottom: "15px",
             fontWeight: "600",
@@ -481,7 +481,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           border: "1px solid #e5e7eb"
         }}>
           <h2 style={{
-            color: "#ffffff",
+            color: "#374151",
             fontSize: window.innerWidth <= 768 ? "18px" : "20px",
             marginBottom: "15px",
             fontWeight: "600",
