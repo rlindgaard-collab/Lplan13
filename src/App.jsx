@@ -174,7 +174,9 @@ ${(goals["færdighedsmål"] || []).join("\n")}
       flexDirection: window.innerWidth <= 768 ? "column" : "row",
       fontFamily: "sans-serif",
       minHeight: "100vh",
-      backgroundColor: "#004250"
+      backgroundColor: "#004250",
+      margin: 0,
+      padding: 0
     }}>
       {/* Venstre side */}
       <div style={{ 
