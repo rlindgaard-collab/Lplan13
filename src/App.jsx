@@ -348,11 +348,39 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           {profile && goals && (
             <div>
               <h3>Kompetencemål</h3>
-              <ul>
+              <div style={{ marginBottom: "15px" }}>
                 {Array.isArray(goals["kompetencemål"])
-                  ? goals["kompetencemål"].map((m, i) => <li key={i}>{m}</li>)
-                  : <li>{goals["kompetencemål"]}</li>}
-              </ul>
+                  ? goals["kompetencemål"].map((m, i) => {
+                      // Check if the text contains a title pattern like "Samarbejde og udvikling Den studerende..."
+                      const titleMatch = m.match(/^([^A-ZÆØÅ]*[A-ZÆØÅ][^A-ZÆØÅ]*)\s+(Den studerende.*)/);
+                      if (titleMatch) {
+                        return (
+                          <div key={i} style={{ marginBottom: "10px" }}>
+                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "bold", color: "#333" }}>
+                              {titleMatch[1].trim()}
+                            </h4>
+                            <p style={{ margin: "0", lineHeight: "1.4" }}>{titleMatch[2]}</p>
+                          </div>
+                        );
+                      }
+                      return <p key={i} style={{ margin: "0 0 10px 0", lineHeight: "1.4" }}>{m}</p>;
+                    })
+                  : (() => {
+                      const m = goals["kompetencemål"];
+                      const titleMatch = m?.match(/^([^A-ZÆØÅ]*[A-ZÆØÅ][^A-ZÆØÅ]*)\s+(Den studerende.*)/);
+                      if (titleMatch) {
+                        return (
+                          <div style={{ marginBottom: "10px" }}>
+                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "bold", color: "#333" }}>
+                              {titleMatch[1].trim()}
+                            </h4>
+                            <p style={{ margin: "0", lineHeight: "1.4" }}>{titleMatch[2]}</p>
+                          </div>
+                        );
+                      }
+                      return <p style={{ margin: "0", lineHeight: "1.4" }}>{m}</p>;
+                    })()}
+              </div>
 
               <h3>Vidensmål</h3>
               <ul>{(goals["vidensmål"] || []).map((m, i) => <li key={i}>{m}</li>)}</ul>
