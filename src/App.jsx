@@ -494,7 +494,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               cursor: loadingSuggestion ? "not-allowed" : "pointer",
               width: window.innerWidth <= 768 ? "100%" : "auto",
               fontSize: window.innerWidth <= 768 ? "14px" : "16px",
-              marginBottom: "10px"
+              marginBottom: "10px",
               transition: "background-color 0.2s"
             }}
           >
