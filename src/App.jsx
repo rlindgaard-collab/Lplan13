@@ -257,7 +257,22 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           <button onClick={handleSuggestion} disabled={loadingSuggestion}>
             {loadingSuggestion ? "⏳ Genererer forslag..." : "Lav forslag"}
           </button>
-          <pre>{suggestion}</pre>
+          <div style={{
+            border: "1px solid #ddd",
+            padding: "12px",
+            borderRadius: "6px",
+            backgroundColor: "#f9f9f9",
+            whiteSpace: "pre-wrap",
+            wordWrap: "break-word",
+            maxHeight: "300px",
+            overflowY: "auto",
+            fontSize: "14px",
+            lineHeight: "1.4",
+            marginTop: "10px",
+            marginBottom: "10px"
+          }}>
+            {suggestion || "Klik på 'Lav forslag' for at få et aktivitetsforslag baseret på din læreplan og kompetencemål."}
+          </div>
           <button onClick={saveActivity}>Gem aktivitet</button>
         </div>
       </div>
