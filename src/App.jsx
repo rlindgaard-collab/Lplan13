@@ -175,8 +175,28 @@ ${(goals["færdighedsmål"] || []).join("\n")}
         <h1>Læringsassistent</h1>
 
         <div style={{ marginBottom: "20px", background: "#fff", padding: "15px", borderRadius: "10px" }}>
-          <h2>Upload PDF</h2>
-          <input type="file" accept="application/pdf" onChange={handlePdfUpload} />
+          <input 
+            type="file" 
+            accept="application/pdf" 
+            onChange={handlePdfUpload}
+            style={{ display: "none" }}
+            id="pdf-upload"
+          />
+          <label 
+            htmlFor="pdf-upload"
+            style={{
+              display: "inline-block",
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "white",
+              borderRadius: "5px",
+              cursor: "pointer",
+              border: "none",
+              fontSize: "16px"
+            }}
+          >
+            Upload PDF
+          </label>
           {loadingPdf && <p>📄 Indlæser PDF...</p>}
           {loadingSummary && <p>✨ Opsummerer læreplan...</p>}
         </div>
