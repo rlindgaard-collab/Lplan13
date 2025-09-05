@@ -183,7 +183,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
         maxWidth: window.innerWidth <= 768 ? "100%" : "50%"
       }}>
         <h1 style={{
-          color: "#1e3a8a",
+          color: "#ffffff",
           fontSize: window.innerWidth <= 768 ? "24px" : "32px",
           marginBottom: "20px",
           fontWeight: "600"
