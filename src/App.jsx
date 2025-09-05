@@ -174,7 +174,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
       flexDirection: window.innerWidth <= 768 ? "column" : "row",
       fontFamily: "sans-serif",
       minHeight: "100vh",
-      backgroundColor: "#f5f5f5"
+      backgroundColor: "#f8f9fa"
     }}>
       {/* Venstre side */}
       <div style={{ 
@@ -182,14 +182,20 @@ ${(goals["færdighedsmål"] || []).join("\n")}
         padding: window.innerWidth <= 768 ? "10px" : "20px",
         maxWidth: window.innerWidth <= 768 ? "100%" : "50%"
       }}>
-        <h1>Læringsassistent</h1>
+        <h1 style={{
+          color: "#1e3a8a",
+          fontSize: window.innerWidth <= 768 ? "24px" : "32px",
+          marginBottom: "20px",
+          fontWeight: "600"
+        }}>Læringsassistent</h1>
 
         <div style={{ 
           marginBottom: "20px", 
           background: "#fff", 
           padding: window.innerWidth <= 768 ? "10px" : "15px", 
           borderRadius: "10px",
-          boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+          boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+          border: "1px solid #e5e7eb"
         }}>
           <input 
             type="file" 
@@ -203,7 +209,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             style={{
               display: "inline-block",
               padding: window.innerWidth <= 768 ? "12px 16px" : "10px 20px",
-              backgroundColor: "#007bff",
+              backgroundColor: "#1e40af",
               color: "white",
               borderRadius: "5px",
               cursor: "pointer",
@@ -211,6 +217,7 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               fontSize: window.innerWidth <= 768 ? "14px" : "16px",
               width: window.innerWidth <= 768 ? "100%" : "auto",
               textAlign: "center"
+              transition: "background-color 0.2s"
             }}
           >
             Upload PDF
@@ -224,18 +231,25 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           background: "#fff", 
           padding: window.innerWidth <= 768 ? "10px" : "15px", 
           borderRadius: "10px",
-          boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+          boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+          border: "1px solid #e5e7eb"
         }}>
-          <h2>Mine aktiviteter (max 3)</h2>
+          <h2 style={{
+            color: "#1e3a8a",
+            fontSize: window.innerWidth <= 768 ? "18px" : "20px",
+            marginBottom: "15px",
+            fontWeight: "600"
+          }}>Mine aktiviteter (max 3)</h2>
           {activities.map((act, idx) => (
             <div key={idx} style={{ 
-              border: "1px solid #ddd", 
+              border: "1px solid #d1d5db", 
               padding: window.innerWidth <= 768 ? "8px" : "10px", 
               marginBottom: "10px", 
-              borderRadius: "6px" 
+              borderRadius: "8px",
+              backgroundColor: "#f9fafb"
             }}>
-              <strong>Aktivitet {idx + 1}</strong>
-              <p>{act.text}</p>
+              <strong style={{ color: "#374151" }}>Aktivitet {idx + 1}</strong>
+              <p style={{ color: "#4b5563", lineHeight: "1.5" }}>{act.text}</p>
               <textarea
                 placeholder="Skriv dine refleksioner..."
                 value={act.reflection}
@@ -246,18 +260,20 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                   minHeight: window.innerWidth <= 768 ? "60px" : "80px",
                   padding: "8px",
                   borderRadius: "4px",
-                  border: "1px solid #ddd"
+                  border: "1px solid #d1d5db",
+                  fontSize: "14px"
                 }}
               />
               <button 
                 onClick={() => deleteActivity(idx)}
                 style={{
                   padding: "6px 12px",
-                  backgroundColor: "#dc3545",
+                  backgroundColor: "#ef4444",
                   color: "white",
                   border: "none",
                   borderRadius: "4px",
-                  cursor: "pointer"
+                  cursor: "pointer",
+                  transition: "background-color 0.2s"
                 }}
               >
                 Slet
@@ -268,13 +284,14 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             onClick={downloadPDF}
             style={{
               padding: window.innerWidth <= 768 ? "12px 16px" : "10px 20px",
-              backgroundColor: "#28a745",
+              backgroundColor: "#059669",
               color: "white",
               border: "none",
               borderRadius: "5px",
               cursor: "pointer",
               width: window.innerWidth <= 768 ? "100%" : "auto",
-              fontSize: window.innerWidth <= 768 ? "14px" : "16px"
+              fontSize: window.innerWidth <= 768 ? "14px" : "16px",
+              transition: "background-color 0.2s"
             }}
           >
             Udskriv alle aktiviteter
@@ -293,23 +310,30 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           background: "#fff", 
           padding: window.innerWidth <= 768 ? "10px" : "15px", 
           borderRadius: "10px",
-          boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+          boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+          border: "1px solid #e5e7eb"
         }}>
-          <h2>Opsummering af læreplan</h2>
+          <h2 style={{
+            color: "#1e3a8a",
+            fontSize: window.innerWidth <= 768 ? "18px" : "20px",
+            marginBottom: "15px",
+            fontWeight: "600"
+          }}>Opsummering af læreplan</h2>
           {loadingSummary ? (
-            <p>✨ GPT arbejder...</p>
+            <p style={{ color: "#6b7280" }}>✨ GPT arbejder...</p>
           ) : (
             <div style={{
-              border: "1px solid #ddd",
+              border: "1px solid #d1d5db",
               padding: "12px",
-              borderRadius: "6px",
-              backgroundColor: "#f9f9f9",
+              borderRadius: "8px",
+              backgroundColor: "#f9fafb",
               whiteSpace: "pre-wrap",
               wordWrap: "break-word",
               maxHeight: window.innerWidth <= 768 ? "200px" : "300px",
               overflowY: "auto",
               fontSize: window.innerWidth <= 768 ? "12px" : "14px",
-              lineHeight: "1.4"
+              lineHeight: "1.5",
+              color: "#374151"
             }}>
               {summary || "Ingen opsummering endnu - upload en PDF for at komme i gang."}
             </div>
@@ -321,9 +345,15 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           background: "#fff", 
           padding: window.innerWidth <= 768 ? "10px" : "15px", 
           borderRadius: "10px",
-          boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+          boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+          border: "1px solid #e5e7eb"
         }}>
-          <h2>Praktikprofil & mål</h2>
+          <h2 style={{
+            color: "#1e3a8a",
+            fontSize: window.innerWidth <= 768 ? "18px" : "20px",
+            marginBottom: "15px",
+            fontWeight: "600"
+          }}>Praktikprofil & mål</h2>
           <select 
             value={profile} 
             onChange={handleProfileChange}
@@ -332,7 +362,9 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               padding: "8px",
               marginBottom: "10px",
               borderRadius: "4px",
-              border: "1px solid #ddd",
+              border: "1px solid #d1d5db",
+              backgroundColor: "#fff",
+              color: "#374151",
               fontSize: window.innerWidth <= 768 ? "14px" : "16px"
             }}
           >
@@ -347,7 +379,12 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           </select>
           {profile && goals && (
             <div>
-              <h3>Kompetencemål</h3>
+              <h3 style={{
+                color: "#1e40af",
+                fontSize: window.innerWidth <= 768 ? "16px" : "18px",
+                marginBottom: "10px",
+                fontWeight: "600"
+              }}>Kompetencemål</h3>
               <div style={{ marginBottom: "15px" }}>
                 {Array.isArray(goals["kompetencemål"])
                   ? goals["kompetencemål"].map((m, i) => {
@@ -357,10 +394,10 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                       if (praktikMatch) {
                         return (
                           <div key={i} style={{ marginBottom: "10px" }}>
-                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "bold", color: "#333" }}>
+                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#1e40af" }}>
                               {praktikMatch[1].trim()}
                             </h4>
-                            <p style={{ margin: "0", lineHeight: "1.4" }}>{praktikMatch[2]}</p>
+                            <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{praktikMatch[2]}</p>
                           </div>
                         );
                       }
@@ -369,14 +406,14 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                       if (titleMatch) {
                         return (
                           <div key={i} style={{ marginBottom: "10px" }}>
-                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "bold", color: "#333" }}>
+                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#1e40af" }}>
                               {titleMatch[1].trim()}
                             </h4>
-                            <p style={{ margin: "0", lineHeight: "1.4" }}>{titleMatch[2]}</p>
+                            <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{titleMatch[2]}</p>
                           </div>
                         );
                       }
-                      return <p key={i} style={{ margin: "0 0 10px 0", lineHeight: "1.4" }}>{m}</p>;
+                      return <p key={i} style={{ margin: "0 0 10px 0", lineHeight: "1.5", color: "#374151" }}>{m}</p>;
                     })
                   : (() => {
                       const m = goals["kompetencemål"];
@@ -386,10 +423,10 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                       if (praktikMatch) {
                         return (
                           <div style={{ marginBottom: "10px" }}>
-                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "bold", color: "#333" }}>
+                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#1e40af" }}>
                               {praktikMatch[1].trim()}
                             </h4>
-                            <p style={{ margin: "0", lineHeight: "1.4" }}>{praktikMatch[2]}</p>
+                            <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{praktikMatch[2]}</p>
                           </div>
                         );
                       }
@@ -398,22 +435,36 @@ ${(goals["færdighedsmål"] || []).join("\n")}
                       if (titleMatch) {
                         return (
                           <div style={{ marginBottom: "10px" }}>
-                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "bold", color: "#333" }}>
+                            <h4 style={{ margin: "0 0 5px 0", fontWeight: "600", color: "#1e40af" }}>
                               {titleMatch[1].trim()}
                             </h4>
-                            <p style={{ margin: "0", lineHeight: "1.4" }}>{titleMatch[2]}</p>
+                            <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{titleMatch[2]}</p>
                           </div>
                         );
                       }
-                      return <p style={{ margin: "0", lineHeight: "1.4" }}>{m}</p>;
+                      return <p style={{ margin: "0", lineHeight: "1.5", color: "#374151" }}>{m}</p>;
                     })()}
               </div>
 
-              <h3>Vidensmål</h3>
-              <ul>{(goals["vidensmål"] || []).map((m, i) => <li key={i}>{m}</li>)}</ul>
+              <h3 style={{
+                color: "#1e40af",
+                fontSize: window.innerWidth <= 768 ? "16px" : "18px",
+                marginBottom: "10px",
+                fontWeight: "600"
+              }}>Vidensmål</h3>
+              <ul style={{ color: "#374151", lineHeight: "1.5" }}>
+                {(goals["vidensmål"] || []).map((m, i) => <li key={i}>{m}</li>)}
+              </ul>
 
-              <h3>Færdighedsmål</h3>
-              <ul>{(goals["færdighedsmål"] || []).map((m, i) => <li key={i}>{m}</li>)}</ul>
+              <h3 style={{
+                color: "#1e40af",
+                fontSize: window.innerWidth <= 768 ? "16px" : "18px",
+                marginBottom: "10px",
+                fontWeight: "600"
+              }}>Færdighedsmål</h3>
+              <ul style={{ color: "#374151", lineHeight: "1.5" }}>
+                {(goals["færdighedsmål"] || []).map((m, i) => <li key={i}>{m}</li>)}
+              </ul>
             </div>
           )}
         </div>
@@ -422,15 +473,21 @@ ${(goals["færdighedsmål"] || []).join("\n")}
           background: "#fff", 
           padding: window.innerWidth <= 768 ? "10px" : "15px", 
           borderRadius: "10px",
-          boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+          boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+          border: "1px solid #e5e7eb"
         }}>
-          <h2>Lav forslag til aktivitet</h2>
+          <h2 style={{
+            color: "#1e3a8a",
+            fontSize: window.innerWidth <= 768 ? "18px" : "20px",
+            marginBottom: "15px",
+            fontWeight: "600"
+          }}>Lav forslag til aktivitet</h2>
           <button 
             onClick={handleSuggestion} 
             disabled={loadingSuggestion}
             style={{
               padding: window.innerWidth <= 768 ? "12px 16px" : "10px 20px",
-              backgroundColor: loadingSuggestion ? "#6c757d" : "#007bff",
+              backgroundColor: loadingSuggestion ? "#9ca3af" : "#1e40af",
               color: "white",
               border: "none",
               borderRadius: "5px",
@@ -438,23 +495,25 @@ ${(goals["færdighedsmål"] || []).join("\n")}
               width: window.innerWidth <= 768 ? "100%" : "auto",
               fontSize: window.innerWidth <= 768 ? "14px" : "16px",
               marginBottom: "10px"
+              transition: "background-color 0.2s"
             }}
           >
             {loadingSuggestion ? "⏳ Genererer forslag..." : "Lav forslag"}
           </button>
           <div style={{
-            border: "1px solid #ddd",
+            border: "1px solid #d1d5db",
             padding: "12px",
-            borderRadius: "6px",
-            backgroundColor: "#f9f9f9",
+            borderRadius: "8px",
+            backgroundColor: "#f9fafb",
             whiteSpace: "pre-wrap",
             wordWrap: "break-word",
             maxHeight: window.innerWidth <= 768 ? "200px" : "300px",
             overflowY: "auto",
             fontSize: window.innerWidth <= 768 ? "12px" : "14px",
-            lineHeight: "1.4",
+            lineHeight: "1.5",
             marginTop: "10px",
-            marginBottom: "10px"
+            marginBottom: "10px",
+            color: "#374151"
           }}>
             {suggestion || "Klik på 'Lav forslag' for at få et aktivitetsforslag baseret på din læreplan og kompetencemål."}
           </div>
@@ -462,13 +521,14 @@ ${(goals["færdighedsmål"] || []).join("\n")}
             onClick={saveActivity}
             style={{
               padding: window.innerWidth <= 768 ? "12px 16px" : "10px 20px",
-              backgroundColor: "#28a745",
+              backgroundColor: "#059669",
               color: "white",
               border: "none",
               borderRadius: "5px",
               cursor: "pointer",
               width: window.innerWidth <= 768 ? "100%" : "auto",
-              fontSize: window.innerWidth <= 768 ? "14px" : "16px"
+              fontSize: window.innerWidth <= 768 ? "14px" : "16px",
+              transition: "background-color 0.2s"
             }}
           >
             Gem aktivitet
